@@ -1,6 +1,6 @@
-﻿
-namespace SchoolMangementSystem
-{
+
+namespace CoachingMangementSystem
+{       
     partial class AddStudentsForm
     {
         /// <summary>

@@ -1,19 +1,23 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SchoolMangementSystem
+namespace CoachingMangementSystem
 {
     public partial class MainForm : Form
     {
+
         public MainForm()
+
         {
+
             InitializeComponent();
         }
 
@@ -39,7 +43,7 @@ namespace SchoolMangementSystem
         {
             DialogResult check = MessageBox.Show("Are you sure you want to logout?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(check == DialogResult.Yes)
+            if (check == DialogResult.Yes)
             {
                 LoginForm lForm = new LoginForm();
                 lForm.Show();
@@ -68,5 +72,87 @@ namespace SchoolMangementSystem
             addStudentForm1.Update();
             addTeachersForm1.Visible = false;
         }
+
+        private void dashboardForm1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+
+//using System;
+//using System.Windows.Forms;
+
+//namespace CoachingMangementSystem
+//{
+//    public partial class MainForm : Form
+//    {
+//        public MainForm()
+//        {
+//            InitializeComponent();
+//        }
+
+//        // Close application
+//        private void label3_Click(object sender, EventArgs e)
+//        {
+//            Application.Exit();
+//        }
+
+//        // Logout
+//        private void button3_Click_1(object sender, EventArgs e)
+//        {
+//            DialogResult check = MessageBox.Show(
+//                "Are you sure you want to logout?",
+//                "Confirmation Message",
+//                MessageBoxButtons.YesNo,
+//                MessageBoxIcon.Question);
+
+//            if (check == DialogResult.Yes)
+//            {
+//                LoginForm lForm = new LoginForm();
+//                lForm.Show();
+//                this.Hide();
+//            }
+//        }
+
+//        // Dashboard button
+//        private void button1_Click(object sender, EventArgs e)
+//        {
+//            dashboardForm1.Visible = true;
+//            addStudentForm1.Visible = false;
+//            addTeachersForm1.Visible = false;
+
+//            dashboardForm1.displayEnrolledStudentToday();
+//            dashboardForm1.displayTotalTT();
+//            dashboardForm1.displayTotalES();
+
+//            dashboardForm1.Update();
+//        }
+
+//        // Teacher button
+//        private void button4_Click(object sender, EventArgs e)
+//        {
+//            dashboardForm1.Visible = false;
+//            addStudentForm1.Visible = false;
+
+//            addTeachersForm1.Visible = true;
+//            addTeachersForm1.Update();
+//        }
+
+//        // Student button
+//        private void AddStudent_btn_Click(object sender, EventArgs e)
+//        {
+//            dashboardForm1.Visible = false;
+//            addStudentForm1.Visible = true;
+
+//            addTeachersForm1.Visible = false;
+
+//            addStudentForm1.Update();
+//        }
+
+//        private void dashboardForm1_Load(object sender, EventArgs e)
+//        {
+//        }
+//    }
+//}

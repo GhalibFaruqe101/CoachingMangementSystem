@@ -1,153 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
-using System.Data.SqlClient;
 
-namespace SchoolMangementSystem
+namespace CoachingMangementSystem
 {
     public partial class DashboardForm : UserControl
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WINDOWS 10\Documents\school.mdf;Integrated Security=True;Connect Timeout=30");
         public DashboardForm()
         {
             InitializeComponent();
 
             displayTotalES();
             displayTotalTT();
-            displayTotalGS();
-
             displayEnrolledStudentToday();
         }
 
         public void displayTotalES()
         {
-            if(connect.State != ConnectionState.Open)
+            try
             {
-                try
-                {
-                    connect.Open();
-                    string selectData = "SELECT COUNT(id) FROM students WHERE student_status = 'Enrolled' AND date_delete IS NULL";
-
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
-                    {
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        int tempES = 0;
-                        if (reader.Read())
-                        {
-                            tempES = Convert.ToInt32(reader[0]);
-
-                            total_ES.Text = tempES.ToString();
-                        }
-                    }
-
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Error to connect Database: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                finally
-                {
-                    connect.Close();
-                }
+                total_ES.Text = "0";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting Database: " + ex.Message);
             }
         }
 
         public void displayTotalTT()
         {
-            if (connect.State != ConnectionState.Open)
+            try
             {
-                try
-                {
-                    connect.Open();
-                    string selectData = "SELECT COUNT(id) FROM teachers WHERE teacher_status = 'Active' AND date_delete IS NULL";
-
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
-                    {
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        int tempTT = 0;
-                        if (reader.Read())
-                        {
-                            tempTT = Convert.ToInt32(reader[0]);
-
-                            total_TT.Text = tempTT.ToString();
-                        }
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error to connect Database: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                finally
-                {
-                    connect.Close();
-                }
+                total_TT.Text = "0";
             }
-        }
-
-        public void displayTotalGS()
-        {
-            if (connect.State != ConnectionState.Open)
+            catch (Exception ex)
             {
-                try
-                {
-                    connect.Open();
-                    string selectData = "SELECT COUNT(id) FROM students WHERE student_status = 'Graduated' AND date_delete IS NULL";
-
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
-                    {
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        int tempGS = 0;
-                        if (reader.Read())
-                        {
-                            tempGS = Convert.ToInt32(reader[0]);
-
-                            total_GS.Text = tempGS.ToString();
-                        }
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error to connect Database: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                finally
-                {
-                    connect.Close();
-                }
+                MessageBox.Show("Error connecting Database: " + ex.Message);
             }
         }
 
         public void displayEnrolledStudentToday()
         {
-            AddStudentData asData = new AddStudentData();
-
-            dataGridView1.DataSource = asData.dashboardStudentData();
+            try
+            {
+                // Mock - no database
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting Database: " + ex.Message);
+            }
         }
 
-        private void DashboardForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        public void displayTotalGS() { }
+        private void panel5_Paint(object sender, PaintEventArgs e) { }
+        private void label6_Click(object sender, EventArgs e) { }
+        private void panel3_Paint(object sender, PaintEventArgs e) { }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void student_addBtn_Click(object sender, EventArgs e) { }
+        private void Add_Stu_btn_Click(object sender, EventArgs e) { }
+        private void DashboardForm_Load(object sender, EventArgs e) { }
     }
 }

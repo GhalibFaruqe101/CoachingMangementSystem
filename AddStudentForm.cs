@@ -1,313 +1,376 @@
-﻿using System;
-using System.Windows.Forms;
+
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Drawing;
+using System.IO;
+using System.Linq.Expressions;
+using System.Windows.Forms;
 
-namespace SchoolMangementSystem
+
+namespace CoachingMangementSystem
 {
+
     public partial class AddStudentForm : UserControl
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WINDOWS 10\Documents\school.mdf;Integrated Security=True;Connect Timeout=30");
+        private DB db;
         public AddStudentForm()
         {
             InitializeComponent();
+            this.db = new DB();
 
-            displayStudentData();
+
+            LoadStudent();
+        }
+
+        private void LoadStudent()
+        {
+            try
+            {
+                string sql = "SELECT * FROM Students";
+
+                DataTable table = this.db.ExecuteQuery(sql);
+
+                student_studentData.DataSource = table;
+                //int count = this.db.ExecuteDMLQuery(sql);
+                //if (count == 1)
+                //{
+                //    MessageBox.Show("Student added successfully");
+
+                //    LoadStudent();
+                //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+        }
+
+
+        private void addStudentBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!IsValidToSave())
+                {
+                    MessageBox.Show("Please fill all the empty fields");
+                    return;
+                }
+
+                Student student;
+
+                if (DataStore.SearchStudent(
+                    this.student_id.Text.Trim(),
+                    out student))
+                {
+                    MessageBox.Show("Student ID already exists");
+                    return;
+                }
+
+                Student newStudent = new Student(
+                    this.student_id.Text.Trim(),
+                    this.student_name.Text.Trim(),
+                    this.student_id.Text.Trim(),
+                    "1234",
+                    this.student_gender.Text,
+                    this.student_address.Text.Trim(),
+                    this.student_grade.Text,
+                    this.student_section.Text
+                );
+
+                DataStore.AddStudent(newStudent);
+
+                MessageBox.Show("Student added successfully");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        private bool IsValidToSave()
+        {
+            if (string.IsNullOrEmpty(this.student_id.Text) ||
+                string.IsNullOrEmpty(this.student_name.Text) ||
+                string.IsNullOrEmpty(this.student_gender.Text) ||
+                string.IsNullOrEmpty(this.student_address.Text) ||
+                string.IsNullOrEmpty(this.student_grade.Text) ||
+                string.IsNullOrEmpty(this.student_section.Text))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public void displayStudentData()
         {
-            AddStudentData adData = new AddStudentData();
-
-            student_studentData.DataSource = adData.studentData();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (student_id.Text == ""
-                || student_name.Text == ""
-                || student_gender.Text == ""
-                || student_address.Text == ""
-                || student_grade.Text == ""
-                || student_section.Text == ""
-                || student_status.Text == ""
-                || student_image.Image == null
-                || imagePath == null)
-            {
-                MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (connect.State != ConnectionState.Open)
-                {
-                    try
-                    {
-                        connect.Open();
-
-                        // WE DON'T LIKE THE DUPLICATE STUDENT ID SO, WE NEED TO CHECK IF ON THE DATABASE HAS ALREADY TEACHER ID VALUE THAT SAME TO THE USER THAT WANT TO INSERT 
-                        string checkStudentID = "SELECT COUNT(*) FROM students WHERE student_id = @studentID";
-
-                        using (SqlCommand checkSID = new SqlCommand(checkStudentID, connect))
-                        {
-                            checkSID.Parameters.AddWithValue("@studentID", student_id.Text.Trim());
-                            int count = (int)checkSID.ExecuteScalar();
-
-                            if (count >= 1)
-                            {
-                                MessageBox.Show("Student ID: " + student_id.Text.Trim() + " is already exist"
-                                    , "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            }
-                            else
-                            {
-                                DateTime today = DateTime.Today;
-                                string insertData = "INSERT INTO students (student_id, student_name" +
-                                    ", student_gender, student_address, student_grade, student_section" +
-                                    ", student_image, student_status, date_insert) " +
-                                    "VALUES(@studentID, @studentName, @studentGender, @studentAddress" +
-                                    ", @studentGrade, @studentSection, @studentImage, @studentStatus" +
-                                    ", @dateInsert)";
-
-                                // TO SAVE TO YOUR DIRECTORY
-                                string path = Path.Combine(@"C:\Users\WINDOWS 10\source\repos\SchoolMangementSystem\SchoolMangementSystem\Student_Directory\", student_id.Text.Trim() + ".jpg");
-
-                                string directoryPath = Path.GetDirectoryName(path);
-
-                                if (!Directory.Exists(directoryPath))
-                                {
-                                    Directory.CreateDirectory(directoryPath);
-                                }
-
-                                File.Copy(imagePath, path, true);
-
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
-                                {
-                                    cmd.Parameters.AddWithValue("@studentID", student_id.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@studentName", student_name.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@studentGender", student_gender.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@studentAddress", student_address.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@studentGrade", student_grade.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@studentSection", student_section.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@studentImage", path);
-                                    cmd.Parameters.AddWithValue("@studentStatus", student_status.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@dateInsert", today.ToString());
-
-                                    cmd.ExecuteNonQuery();
-
-                                    displayStudentData();
-
-                                    MessageBox.Show("Added successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    clearFields();
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error connecting Database: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    finally
-                    {
-                        connect.Close();
-                    }
-                }
-            }
+            student_studentData.DataSource = null;
+            student_studentData.DataSource = DataStore.Students;
         }
 
         public void clearFields()
         {
-            student_id.Text = "";
-            student_name.Text = "";
-            student_gender.SelectedIndex = -1;
-            student_address.Text = "";
-            student_grade.SelectedIndex = -1;
-            student_section.SelectedIndex = -1;
-            student_status.SelectedIndex = -1;
-            student_image.Image = null;
-            imagePath = "";
-        }
-
-        public string imagePath;
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image files (*.jpg; *.png)|*.jpg;*.png";
-
-            if (open.ShowDialog() == DialogResult.OK)
-            {
-                imagePath = open.FileName;
-
-                student_image.ImageLocation = imagePath;
-            }
-        }
-
-        private void student_updateBtn_Click(object sender, EventArgs e)
-        {
-            if (student_id.Text == ""
-                || student_name.Text == ""
-                || student_gender.Text == ""
-                || student_address.Text == ""
-                || student_grade.Text == ""
-                || student_section.Text == ""
-                || student_status.Text == ""
-                || student_image.Image == null
-                || imagePath == null)
-            {
-                MessageBox.Show("Please select item first", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (connect.State != ConnectionState.Open)
-                {
-                    try
-                    {
-                        connect.Open();
-
-                        DialogResult check = MessageBox.Show("Are you sure you want to Update Student ID: "
-                            + student_id.Text.Trim() + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (check == DialogResult.Yes)
-                        {
-                            DateTime today = DateTime.Today;
-
-                            String updateData = "UPDATE students SET student_name = @studentName, " +
-                                "student_gender = @studentGender, student_address = @studentAddress, " +
-                                "student_grade = @studentGrade, student_section = @studentSection, " +
-                                "student_status = @studentStatus, date_update = @dateUpdate " +
-                                "WHERE student_id = @studentID";
-
-
-                            using (SqlCommand cmd = new SqlCommand(updateData, connect))
-                            {
-                                cmd.Parameters.AddWithValue("@studentName", student_name.Text.Trim());
-                                cmd.Parameters.AddWithValue("@studentGender", student_gender.Text.Trim());
-                                cmd.Parameters.AddWithValue("@studentAddress", student_address.Text.Trim());
-                                cmd.Parameters.AddWithValue("@studentGrade", student_grade.Text.Trim());
-                                cmd.Parameters.AddWithValue("@studentSection", student_section.Text.Trim());
-                                cmd.Parameters.AddWithValue("@studentStatus", student_status.Text.Trim());
-                                cmd.Parameters.AddWithValue("@dateUpdate", today.ToString());
-                                cmd.Parameters.AddWithValue("@studentID", student_id.Text.Trim());
-
-                                cmd.ExecuteNonQuery();
-
-                                displayStudentData();
-
-                                MessageBox.Show("Updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                clearFields();
-
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cancelled.", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            clearFields();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error connecting Database: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                    finally
-                    {
-                        connect.Close();
-                    }
-                }
-            }
-        }
-
-        private void student_studentData_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                DataGridViewRow row = student_studentData.Rows[e.RowIndex];
-                student_id.Text = row.Cells[1].Value.ToString();
-                student_name.Text = row.Cells[2].Value.ToString();
-                student_gender.Text = row.Cells[3].Value.ToString();
-                student_address.Text = row.Cells[4].Value.ToString();
-                student_grade.Text = row.Cells[5].Value.ToString();
-                student_section.Text = row.Cells[6].Value.ToString();
-
-                imagePath = row.Cells[5].Value.ToString();
-
-                string imageData = row.Cells[7].Value.ToString();
-
-                if (imageData != null && imageData.Length > 0)
-                {
-                    student_image.Image = Image.FromFile(imageData);
-                }
-                else
-                {
-                    student_image.Image = null;
-                }
-
-                student_status.Text = row.Cells[8].Value.ToString();
-
-            }
+            this.student_id.Text = "";
+            this.student_name.Text = "";
+            this.student_gender.SelectedIndex = -1;
+            this.student_address.Text = "";
+            this.student_grade.SelectedIndex = -1;
+            this.student_section.SelectedIndex = -1;
         }
 
         private void student_deleteBtn_Click(object sender, EventArgs e)
         {
-            if (student_id.Text == "")
+            try
             {
-                MessageBox.Show("Please select item first", "Error Message"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (connect.State != ConnectionState.Open)
+                if (string.IsNullOrEmpty(student_id.Text))
                 {
-                    DialogResult check = MessageBox.Show("Are you sure you want to Delete Student ID: "
-                        + student_id.Text + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    MessageBox.Show("Please select a student first");
+                    return;
+                }
 
-                    if (check == DialogResult.Yes)
-                    {
+                DialogResult check = MessageBox.Show(
+                    "Are you sure you want to delete this student?",
+                    "Confirmation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-                        try
-                        {
-                            connect.Open();
-                            DateTime today = DateTime.Today;
+                if (check == DialogResult.No)
+                    return;
 
-                            string deleteData = "UPDATE students SET date_delete = @dateDelete " +
-                                "WHERE student_id = @studentID";
+                Student student;
 
-                            using (SqlCommand cmd = new SqlCommand(deleteData, connect))
-                            {
-                                cmd.Parameters.AddWithValue("@dateDelete", today.ToString());
-                                cmd.Parameters.AddWithValue("@studentID", student_id.Text.Trim());
+                if (DataStore.SearchStudent(student_id.Text, out student))
+                {
+                    DataStore.Students.Remove(student);
+                    DataStore.Users.Remove(student);
 
-                                cmd.ExecuteNonQuery();
+                    MessageBox.Show("Student deleted successfully");
 
-                                displayStudentData();
+                    displayStudentData();
+                    clearFields();
+                }
+                else
+                {
+                    MessageBox.Show("Student not found");
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void student_updateBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!IsValidToSave())
+                {
+                    MessageBox.Show("Please fill all the empty fields");
+                    return;
+                }
 
-                                MessageBox.Show("Deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Student student;
 
-                                clearFields();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error connecting Database: " + ex, "Error Message"
-                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        finally
-                        {
-                            connect.Close();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cancelled.", "Information Message"
-                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                if (!DataStore.SearchStudent(student_id.Text, out student))
+                {
+                    MessageBox.Show("Student not found");
+                    return;
+                }
+
+                student.Name = student_name.Text.Trim();
+                student.Gender = student_gender.Text;
+                student.Address = student_address.Text.Trim();
+                student.ClassName = student_grade.Text;
+                student.Section = student_section.Text;
+
+                MessageBox.Show("Student updated successfully");
+
+                displayStudentData();
+                clearFields();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void button2_Click(object sender, EventArgs e) {
+            addStudentBtn_Click(sender, e);
+            {
+                int count = this.db.ExecuteDMLQuery("INSERT INTO Students (Id, Name, Gender, Address, Class) VALUES ('" + student_id.Text + "', '" + student_name.Text + "', '" + student_gender.Text + "', '" + student_address.Text + "', '" + student_grade.Text + "')");
+                if (count == 1)
+                {
+                    MessageBox.Show("Student added successfully");
+                    LoadStudent();
+
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add student");
 
                 }
             }
         }
+        
+        private void button1_Click(object sender, EventArgs e) { }
+        private void student_studentData_CellClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void student_studentData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex == -1)
+                    return;
+
+                Student student =
+                    (Student)student_studentData.Rows[e.RowIndex].DataBoundItem;
+
+                student_id.Text = student.Id;
+                student_name.Text = student.Name;
+                student_gender.Text = student.Gender;
+                student_address.Text = student.Address;
+                student_grade.Text = student.ClassName;
+                student_section.Text = student.Section;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void student_gender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(searchtxt.Text))
+                {
+                    MessageBox.Show("Please enter Student ID");
+                    return;
+                }
+            }
+
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void student_grade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void student_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void student_clearBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void student_image_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void student_section_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void student_address_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void student_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void student_id_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void searchtxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

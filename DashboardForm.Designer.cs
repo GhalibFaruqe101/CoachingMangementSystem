@@ -1,5 +1,10 @@
-﻿
-namespace SchoolMangementSystem
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace CoachingMangementSystem
 {
     partial class DashboardForm
     {
@@ -29,7 +34,7 @@ namespace SchoolMangementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.total_GS = new System.Windows.Forms.Label();
@@ -46,6 +51,8 @@ namespace SchoolMangementSystem
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Add_Tea_btn = new System.Windows.Forms.Button();
+            this.Add_Stu_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -65,7 +72,7 @@ namespace SchoolMangementSystem
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(17, 21);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1125, 225);
             this.panel1.TabIndex = 0;
@@ -76,11 +83,12 @@ namespace SchoolMangementSystem
             this.panel5.Controls.Add(this.total_GS);
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(771, 27);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Location = new System.Drawing.Point(799, 27);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(325, 169);
             this.panel5.TabIndex = 2;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // total_GS
             // 
@@ -96,9 +104,9 @@ namespace SchoolMangementSystem
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::SchoolMangementSystem.Properties.Resources.icons8_student_registration_filled_60px;
+            this.pictureBox3.Image = global::CoachingMangementSystem.Properties.Resources.icons8_student_registration_filled_60px;
             this.pictureBox3.Location = new System.Drawing.Point(20, 32);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(80, 74);
             this.pictureBox3.TabIndex = 6;
@@ -109,12 +117,13 @@ namespace SchoolMangementSystem
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(127, 43);
+            this.label6.Location = new System.Drawing.Point(137, 32);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 21);
+            this.label6.Size = new System.Drawing.Size(112, 21);
             this.label6.TabIndex = 7;
-            this.label6.Text = "Graduated Students";
+            this.label6.Text = "Past Students";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel4
             // 
@@ -123,7 +132,7 @@ namespace SchoolMangementSystem
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(396, 27);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(325, 169);
             this.panel4.TabIndex = 1;
@@ -142,9 +151,9 @@ namespace SchoolMangementSystem
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::SchoolMangementSystem.Properties.Resources.icons8_training_filled_60px;
+            this.pictureBox2.Image = global::CoachingMangementSystem.Properties.Resources.icons8_training_filled_60px;
             this.pictureBox2.Location = new System.Drawing.Point(21, 32);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 74);
             this.pictureBox2.TabIndex = 3;
@@ -169,9 +178,9 @@ namespace SchoolMangementSystem
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Location = new System.Drawing.Point(23, 27);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(325, 169);
+            this.panel3.Size = new System.Drawing.Size(333, 169);
             this.panel3.TabIndex = 0;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -201,9 +210,9 @@ namespace SchoolMangementSystem
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SchoolMangementSystem.Properties.Resources.icons8_students_filled_60px;
+            this.pictureBox1.Image = global::CoachingMangementSystem.Properties.Resources.icons8_students_filled_60px;
             this.pictureBox1.Location = new System.Drawing.Point(24, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 74);
             this.pictureBox1.TabIndex = 0;
@@ -215,10 +224,10 @@ namespace SchoolMangementSystem
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(17, 266);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(17, 398);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1125, 407);
+            this.panel2.Size = new System.Drawing.Size(1125, 275);
             this.panel2.TabIndex = 1;
             // 
             // label2
@@ -237,18 +246,18 @@ namespace SchoolMangementSystem
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(23, 74);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -257,15 +266,53 @@ namespace SchoolMangementSystem
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Add_Tea_btn
+            // 
+            this.Add_Tea_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.Add_Tea_btn.FlatAppearance.BorderSize = 0;
+            this.Add_Tea_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Add_Tea_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Add_Tea_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_Tea_btn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_Tea_btn.ForeColor = System.Drawing.Color.White;
+            this.Add_Tea_btn.Location = new System.Drawing.Point(338, 272);
+            this.Add_Tea_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Add_Tea_btn.Name = "Add_Tea_btn";
+            this.Add_Tea_btn.Size = new System.Drawing.Size(177, 94);
+            this.Add_Tea_btn.TabIndex = 15;
+            this.Add_Tea_btn.Text = "Teacher";
+            this.Add_Tea_btn.UseVisualStyleBackColor = false;
+            this.Add_Tea_btn.Click += new System.EventHandler(this.student_addBtn_Click);
+            // 
+            // Add_Stu_btn
+            // 
+            this.Add_Stu_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.Add_Stu_btn.FlatAppearance.BorderSize = 0;
+            this.Add_Stu_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Add_Stu_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Add_Stu_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_Stu_btn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_Stu_btn.ForeColor = System.Drawing.Color.White;
+            this.Add_Stu_btn.Location = new System.Drawing.Point(588, 272);
+            this.Add_Stu_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Add_Stu_btn.Name = "Add_Stu_btn";
+            this.Add_Stu_btn.Size = new System.Drawing.Size(177, 94);
+            this.Add_Stu_btn.TabIndex = 16;
+            this.Add_Stu_btn.Text = "Student";
+            this.Add_Stu_btn.UseVisualStyleBackColor = false;
+            this.Add_Stu_btn.Click += new System.EventHandler(this.Add_Stu_btn_Click);
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Add_Stu_btn);
+            this.Controls.Add(this.Add_Tea_btn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DashboardForm";
-            this.Size = new System.Drawing.Size(1167, 708);
+            this.Size = new System.Drawing.Size(1335, 815);
             this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -302,5 +349,7 @@ namespace SchoolMangementSystem
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Button Add_Tea_btn;
+        private Button Add_Stu_btn;
     }
 }

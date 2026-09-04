@@ -1,25 +1,25 @@
-﻿
-namespace SchoolMangementSystem
+
+namespace CoachingMangementSystem
 {
     partial class AddStudentForm
     {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        //private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing && (components != null))
+        //    {
+        //        components.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
         #region Component Designer generated code
 
@@ -29,8 +29,10 @@ namespace SchoolMangementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.student_status = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.student_deleteBtn = new System.Windows.Forms.Button();
             this.student_clearBtn = new System.Windows.Forms.Button();
             this.student_updateBtn = new System.Windows.Forms.Button();
@@ -53,8 +55,8 @@ namespace SchoolMangementSystem
             this.panel1 = new System.Windows.Forms.Panel();
             this.student_studentData = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.student_status = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.searchtxt = new System.Windows.Forms.TextBox();
+            this.searchbtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.student_image)).BeginInit();
@@ -66,6 +68,8 @@ namespace SchoolMangementSystem
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.searchbtn);
+            this.panel2.Controls.Add(this.searchtxt);
             this.panel2.Controls.Add(this.student_status);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.student_deleteBtn);
@@ -86,10 +90,37 @@ namespace SchoolMangementSystem
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.student_id);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 320);
+            this.panel2.Location = new System.Drawing.Point(16, 394);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(851, 229);
+            this.panel2.Size = new System.Drawing.Size(1134, 281);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // student_status
+            // 
+            this.student_status.FormattingEnabled = true;
+            this.student_status.Items.AddRange(new object[] {
+            "Enrolled",
+            "Pending",
+            "Graduated"});
+            this.student_status.Location = new System.Drawing.Point(705, 74);
+            this.student_status.Margin = new System.Windows.Forms.Padding(4);
+            this.student_status.Name = "student_status";
+            this.student_status.Size = new System.Drawing.Size(191, 24);
+            this.student_status.TabIndex = 19;
+            this.student_status.SelectedIndexChanged += new System.EventHandler(this.student_status_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(644, 78);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 16);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Status:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // student_deleteBtn
             // 
@@ -100,9 +131,10 @@ namespace SchoolMangementSystem
             this.student_deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.student_deleteBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.student_deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.student_deleteBtn.Location = new System.Drawing.Point(575, 174);
+            this.student_deleteBtn.Location = new System.Drawing.Point(549, 214);
+            this.student_deleteBtn.Margin = new System.Windows.Forms.Padding(4);
             this.student_deleteBtn.Name = "student_deleteBtn";
-            this.student_deleteBtn.Size = new System.Drawing.Size(102, 35);
+            this.student_deleteBtn.Size = new System.Drawing.Size(136, 43);
             this.student_deleteBtn.TabIndex = 17;
             this.student_deleteBtn.Text = "Delete";
             this.student_deleteBtn.UseVisualStyleBackColor = false;
@@ -117,12 +149,14 @@ namespace SchoolMangementSystem
             this.student_clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.student_clearBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.student_clearBtn.ForeColor = System.Drawing.Color.White;
-            this.student_clearBtn.Location = new System.Drawing.Point(449, 174);
+            this.student_clearBtn.Location = new System.Drawing.Point(381, 214);
+            this.student_clearBtn.Margin = new System.Windows.Forms.Padding(4);
             this.student_clearBtn.Name = "student_clearBtn";
-            this.student_clearBtn.Size = new System.Drawing.Size(102, 35);
+            this.student_clearBtn.Size = new System.Drawing.Size(136, 43);
             this.student_clearBtn.TabIndex = 16;
             this.student_clearBtn.Text = "Clear";
             this.student_clearBtn.UseVisualStyleBackColor = false;
+            this.student_clearBtn.Click += new System.EventHandler(this.student_clearBtn_Click);
             // 
             // student_updateBtn
             // 
@@ -133,9 +167,10 @@ namespace SchoolMangementSystem
             this.student_updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.student_updateBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.student_updateBtn.ForeColor = System.Drawing.Color.White;
-            this.student_updateBtn.Location = new System.Drawing.Point(312, 174);
+            this.student_updateBtn.Location = new System.Drawing.Point(198, 214);
+            this.student_updateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.student_updateBtn.Name = "student_updateBtn";
-            this.student_updateBtn.Size = new System.Drawing.Size(102, 35);
+            this.student_updateBtn.Size = new System.Drawing.Size(136, 43);
             this.student_updateBtn.TabIndex = 15;
             this.student_updateBtn.Text = "Update";
             this.student_updateBtn.UseVisualStyleBackColor = false;
@@ -150,9 +185,10 @@ namespace SchoolMangementSystem
             this.student_addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.student_addBtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.student_addBtn.ForeColor = System.Drawing.Color.White;
-            this.student_addBtn.Location = new System.Drawing.Point(186, 174);
+            this.student_addBtn.Location = new System.Drawing.Point(30, 214);
+            this.student_addBtn.Margin = new System.Windows.Forms.Padding(4);
             this.student_addBtn.Name = "student_addBtn";
-            this.student_addBtn.Size = new System.Drawing.Size(102, 35);
+            this.student_addBtn.Size = new System.Drawing.Size(136, 43);
             this.student_addBtn.TabIndex = 14;
             this.student_addBtn.Text = "Add";
             this.student_addBtn.UseVisualStyleBackColor = false;
@@ -167,9 +203,10 @@ namespace SchoolMangementSystem
             this.student_importBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.student_importBtn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.student_importBtn.ForeColor = System.Drawing.Color.White;
-            this.student_importBtn.Location = new System.Drawing.Point(750, 107);
+            this.student_importBtn.Location = new System.Drawing.Point(1000, 132);
+            this.student_importBtn.Margin = new System.Windows.Forms.Padding(4);
             this.student_importBtn.Name = "student_importBtn";
-            this.student_importBtn.Size = new System.Drawing.Size(80, 23);
+            this.student_importBtn.Size = new System.Drawing.Size(107, 28);
             this.student_importBtn.TabIndex = 13;
             this.student_importBtn.Text = "Import";
             this.student_importBtn.UseVisualStyleBackColor = false;
@@ -179,19 +216,23 @@ namespace SchoolMangementSystem
             // 
             this.panel3.BackColor = System.Drawing.Color.Silver;
             this.panel3.Controls.Add(this.student_image);
-            this.panel3.Location = new System.Drawing.Point(750, 24);
+            this.panel3.Location = new System.Drawing.Point(1000, 30);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(80, 86);
+            this.panel3.Size = new System.Drawing.Size(107, 106);
             this.panel3.TabIndex = 12;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // student_image
             // 
             this.student_image.Location = new System.Drawing.Point(0, 0);
+            this.student_image.Margin = new System.Windows.Forms.Padding(4);
             this.student_image.Name = "student_image";
-            this.student_image.Size = new System.Drawing.Size(80, 86);
+            this.student_image.Size = new System.Drawing.Size(107, 106);
             this.student_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.student_image.TabIndex = 1;
             this.student_image.TabStop = false;
+            this.student_image.Click += new System.EventHandler(this.student_image_Click);
             // 
             // student_section
             // 
@@ -202,19 +243,23 @@ namespace SchoolMangementSystem
             "C",
             "D",
             "E"});
-            this.student_section.Location = new System.Drawing.Point(529, 21);
+            this.student_section.Location = new System.Drawing.Point(705, 26);
+            this.student_section.Margin = new System.Windows.Forms.Padding(4);
             this.student_section.Name = "student_section";
-            this.student_section.Size = new System.Drawing.Size(144, 21);
+            this.student_section.Size = new System.Drawing.Size(191, 24);
             this.student_section.TabIndex = 11;
+            this.student_section.SelectedIndexChanged += new System.EventHandler(this.student_section_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(477, 24);
+            this.label7.Location = new System.Drawing.Point(636, 30);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 13);
+            this.label7.Size = new System.Drawing.Size(55, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "Section:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // student_grade
             // 
@@ -226,36 +271,44 @@ namespace SchoolMangementSystem
             "Grade 4",
             "Grade 5",
             "Grade 6"});
-            this.student_grade.Location = new System.Drawing.Point(312, 99);
+            this.student_grade.Location = new System.Drawing.Point(416, 122);
+            this.student_grade.Margin = new System.Windows.Forms.Padding(4);
             this.student_grade.Name = "student_grade";
-            this.student_grade.Size = new System.Drawing.Size(144, 21);
+            this.student_grade.Size = new System.Drawing.Size(191, 24);
             this.student_grade.TabIndex = 9;
+            this.student_grade.SelectedIndexChanged += new System.EventHandler(this.student_grade_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(267, 102);
+            this.label6.Location = new System.Drawing.Point(356, 126);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.Size = new System.Drawing.Size(48, 16);
             this.label6.TabIndex = 8;
             this.label6.Text = "Grade:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // student_address
             // 
-            this.student_address.Location = new System.Drawing.Point(312, 21);
+            this.student_address.Location = new System.Drawing.Point(416, 26);
+            this.student_address.Margin = new System.Windows.Forms.Padding(4);
             this.student_address.Multiline = true;
             this.student_address.Name = "student_address";
-            this.student_address.Size = new System.Drawing.Size(144, 66);
+            this.student_address.Size = new System.Drawing.Size(191, 80);
             this.student_address.TabIndex = 7;
+            this.student_address.TextChanged += new System.EventHandler(this.student_address_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(258, 27);
+            this.label5.Location = new System.Drawing.Point(344, 33);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Address:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // student_gender
             // 
@@ -264,53 +317,65 @@ namespace SchoolMangementSystem
             "Male",
             "Female",
             "Others"});
-            this.student_gender.Location = new System.Drawing.Point(81, 104);
+            this.student_gender.Location = new System.Drawing.Point(108, 128);
+            this.student_gender.Margin = new System.Windows.Forms.Padding(4);
             this.student_gender.Name = "student_gender";
-            this.student_gender.Size = new System.Drawing.Size(144, 21);
+            this.student_gender.Size = new System.Drawing.Size(191, 24);
             this.student_gender.TabIndex = 5;
+            this.student_gender.SelectedIndexChanged += new System.EventHandler(this.student_gender_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 107);
+            this.label4.Location = new System.Drawing.Point(40, 132);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(55, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Gender:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // student_name
             // 
-            this.student_name.Location = new System.Drawing.Point(80, 62);
+            this.student_name.Location = new System.Drawing.Point(107, 76);
+            this.student_name.Margin = new System.Windows.Forms.Padding(4);
             this.student_name.Multiline = true;
             this.student_name.Name = "student_name";
-            this.student_name.Size = new System.Drawing.Size(144, 25);
+            this.student_name.Size = new System.Drawing.Size(191, 30);
             this.student_name.TabIndex = 3;
+            this.student_name.TextChanged += new System.EventHandler(this.student_name_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 68);
+            this.label3.Location = new System.Drawing.Point(27, 84);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Full Name:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // student_id
             // 
-            this.student_id.Location = new System.Drawing.Point(80, 21);
+            this.student_id.Location = new System.Drawing.Point(107, 26);
+            this.student_id.Margin = new System.Windows.Forms.Padding(4);
             this.student_id.Multiline = true;
             this.student_id.Name = "student_id";
-            this.student_id.Size = new System.Drawing.Size(102, 25);
+            this.student_id.Size = new System.Drawing.Size(135, 30);
             this.student_id.TabIndex = 1;
+            this.student_id.TextChanged += new System.EventHandler(this.student_id_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 27);
+            this.label2.Location = new System.Drawing.Point(27, 33);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(71, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Student ID:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -318,73 +383,88 @@ namespace SchoolMangementSystem
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.student_studentData);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 13);
+            this.panel1.Location = new System.Drawing.Point(16, 16);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(851, 290);
+            this.panel1.Size = new System.Drawing.Size(1134, 356);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // student_studentData
             // 
             this.student_studentData.AllowUserToAddRows = false;
             this.student_studentData.AllowUserToDeleteRows = false;
             this.student_studentData.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.student_studentData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.student_studentData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.student_studentData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.student_studentData.EnableHeadersVisualStyles = false;
-            this.student_studentData.Location = new System.Drawing.Point(20, 47);
+            this.student_studentData.Location = new System.Drawing.Point(27, 58);
+            this.student_studentData.Margin = new System.Windows.Forms.Padding(4);
             this.student_studentData.Name = "student_studentData";
             this.student_studentData.ReadOnly = true;
             this.student_studentData.RowHeadersVisible = false;
-            this.student_studentData.Size = new System.Drawing.Size(810, 224);
+            this.student_studentData.RowHeadersWidth = 51;
+            this.student_studentData.Size = new System.Drawing.Size(1080, 276);
             this.student_studentData.TabIndex = 1;
             this.student_studentData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.student_studentData_CellClick);
+            this.student_studentData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.student_studentData_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 15);
+            this.label1.Location = new System.Drawing.Point(21, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 19);
+            this.label1.Size = new System.Drawing.Size(128, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Student\'s Data";
+            this.label1.Text = "Student Data";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // student_status
+            // searchtxt
             // 
-            this.student_status.FormattingEnabled = true;
-            this.student_status.Items.AddRange(new object[] {
-            "Enrolled",
-            "Pending",
-            "Graduated"});
-            this.student_status.Location = new System.Drawing.Point(529, 60);
-            this.student_status.Name = "student_status";
-            this.student_status.Size = new System.Drawing.Size(144, 21);
-            this.student_status.TabIndex = 19;
+            this.searchtxt.Location = new System.Drawing.Point(851, 221);
+            this.searchtxt.Margin = new System.Windows.Forms.Padding(4);
+            this.searchtxt.Multiline = true;
+            this.searchtxt.Name = "searchtxt";
+            this.searchtxt.Size = new System.Drawing.Size(191, 30);
+            this.searchtxt.TabIndex = 20;
+            this.searchtxt.TextChanged += new System.EventHandler(this.searchtxt_TextChanged);
             // 
-            // label8
+            // searchbtn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(483, 63);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Status:";
+            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.searchbtn.FlatAppearance.BorderSize = 0;
+            this.searchbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.searchbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Location = new System.Drawing.Point(756, 220);
+            this.searchbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(87, 31);
+            this.searchbtn.TabIndex = 21;
+            this.searchbtn.Text = "Search";
+            this.searchbtn.UseVisualStyleBackColor = false;
+            this.searchbtn.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // AddStudentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddStudentForm";
-            this.Size = new System.Drawing.Size(875, 575);
+            this.Size = new System.Drawing.Size(1167, 708);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -423,5 +503,7 @@ namespace SchoolMangementSystem
         private System.Windows.Forms.PictureBox student_image;
         private System.Windows.Forms.ComboBox student_status;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button searchbtn;
+        private System.Windows.Forms.TextBox searchtxt;
     }
 }

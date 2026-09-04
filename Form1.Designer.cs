@@ -1,5 +1,9 @@
-﻿
-namespace SchoolMangementSystem
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace CoachingMangementSystem
 {
     partial class Form1
     {
@@ -52,7 +56,7 @@ namespace SchoolMangementSystem
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SchoolMangementSystem.Properties.Resources.icons8_School_80px_1;
+            this.pictureBox1.Image = global::CoachingMangementSystem.Properties.Resources.icons8_School_80px_1;
             this.pictureBox1.Location = new System.Drawing.Point(217, 48);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 80);
