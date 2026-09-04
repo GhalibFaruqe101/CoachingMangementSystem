@@ -244,5 +244,12 @@ namespace CoachingMangementSystem
         {
 
         }
+
+        private void searchtxt_TextChanged(object sender, EventArgs e)
+        {
+            string search = @"SELECT * FROM Teachers WHERE teacher_name LIKE '%" + searchtxt.Text + "%'";
+            DataTable dt = db.ExecuteQuery(search);
+            teacher_gridData.DataSource = dt;
+        }
     }
 }

@@ -122,6 +122,7 @@ namespace CoachingMangementSystem
             this.searchtxt.Name = "searchtxt";
             this.searchtxt.Size = new System.Drawing.Size(191, 30);
             this.searchtxt.TabIndex = 22;
+            this.searchtxt.TextChanged += new System.EventHandler(this.searchtxt_TextChanged);
             // 
             // teacher_sub
             // 
