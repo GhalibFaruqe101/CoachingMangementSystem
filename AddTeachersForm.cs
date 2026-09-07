@@ -67,32 +67,39 @@ namespace CoachingMangementSystem
                     return;
                 }
 
-                Teacher teacher;
-
-                if (DataStore.SearchTeacher(
-                    teacher_id.Text.Trim(),
-                    out teacher))
+                //Teacher teacher;
+                string t_id = @"SELECT * FROM Teachers WHERE teacher_id = '"
+                   + teacher_id.Text + "'";
+                DataTable dt = db.ExecuteQuery(t_id);
+                if (dt.Rows.Count>0)
                 {
                     MessageBox.Show("Teacher ID already exists");
                     return;
                 }
 
-                Teacher newTeacher = new Teacher(
-                    teacher_id.Text.Trim(),
-                    teacher_name.Text.Trim(),
-                    teacher_id.Text.Trim(),
-                    "1234",
-                    teacher_gender.Text,
-                    teacher_address.Text.Trim(),
-                    teacher_sub.Text
-                );
 
-                DataStore.AddTeacher(newTeacher);
+                
+                    String t_add = @"INSERT INTO Teachers " +
+                       "(teacher_id, teacher_name, teacher_gender, teacher_address, teacher_status) " +
+                       "VALUES ('" +
+                       teacher_id.Text + "', '" +
+                       teacher_name.Text + "', '" +
+                       teacher_gender.Text + "', '" +
+                       teacher_address.Text + "', 'Active')";
 
-                MessageBox.Show("Teacher added successfully");
+                int count = this.db.ExecuteDMLQuery(t_add);
+                if (count == 1)
+                {
+                    MessageBox.Show("Teacher added successfully");
 
-                displayTeacherData();
-                clearFields();
+                    loadData();
+                    clearFields();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add teacher");
+                }
+
             }
             catch (Exception exc)
             {
@@ -250,6 +257,11 @@ namespace CoachingMangementSystem
             string search = @"SELECT * FROM Teachers WHERE teacher_name LIKE '%" + searchtxt.Text + "%'";
             DataTable dt = db.ExecuteQuery(search);
             teacher_gridData.DataSource = dt;
+        }
+
+        private void teacher_name_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

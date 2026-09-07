@@ -104,13 +104,13 @@ namespace CoachingMangementSystem
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::CoachingMangementSystem.Properties.Resources.icons8_student_registration_filled_60px;
-            this.pictureBox3.Location = new System.Drawing.Point(20, 32);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(80, 74);
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
+            //this.pictureBox3.Image = global::CoachingMangementSystem.Properties.Resources.icons8_student_registration_filled_60px;
+            //this.pictureBox3.Location = new System.Drawing.Point(20, 32);
+            //this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            //this.pictureBox3.Name = "pictureBox3";
+            //this.pictureBox3.Size = new System.Drawing.Size(80, 74);
+            //this.pictureBox3.TabIndex = 6;
+            //this.pictureBox3.TabStop = false;
             // 
             // label6
             // 
@@ -151,13 +151,13 @@ namespace CoachingMangementSystem
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::CoachingMangementSystem.Properties.Resources.icons8_training_filled_60px;
-            this.pictureBox2.Location = new System.Drawing.Point(21, 32);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(80, 74);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            //this.pictureBox2.Image = global::CoachingMangementSystem.Properties.Resources.icons8_training_filled_60px;
+            //this.pictureBox2.Location = new System.Drawing.Point(21, 32);
+            //this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            //this.pictureBox2.Name = "pictureBox2";
+            //this.pictureBox2.Size = new System.Drawing.Size(80, 74);
+            //this.pictureBox2.TabIndex = 3;
+            //this.pictureBox2.TabStop = false;
             // 
             // label4
             // 
@@ -210,13 +210,13 @@ namespace CoachingMangementSystem
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CoachingMangementSystem.Properties.Resources.icons8_students_filled_60px;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 74);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            //this.pictureBox1.Image = global::CoachingMangementSystem.Properties.Resources.icons8_students_filled_60px;
+            //this.pictureBox1.Location = new System.Drawing.Point(24, 32);
+            //this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            //this.pictureBox1.Name = "pictureBox1";
+            //this.pictureBox1.Size = new System.Drawing.Size(80, 74);
+            //this.pictureBox1.TabIndex = 0;
+            //this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 

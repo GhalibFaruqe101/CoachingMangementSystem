@@ -326,6 +326,7 @@ namespace CoachingMangementSystem
             this.teacher_name.Name = "teacher_name";
             this.teacher_name.Size = new System.Drawing.Size(191, 30);
             this.teacher_name.TabIndex = 3;
+            this.teacher_name.TextChanged += new System.EventHandler(this.teacher_name_TextChanged);
             // 
             // label3
             // 

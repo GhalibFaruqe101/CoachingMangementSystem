@@ -167,10 +167,10 @@ namespace CoachingMangementSystem
                     // Teacher
                     else if (role == "Teacher")
                     {
-                        AddStudentForm stuForm = new AddStudentForm();
-
-                        stuForm.Show();
+                        TeacherDashBoard tb = new TeacherDashBoard(username.Text);
+                        tb.Show();
                         this.Hide();
+
                     }
                 }
                 else

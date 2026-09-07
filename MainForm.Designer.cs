@@ -45,16 +45,9 @@ namespace CoachingMangementSystem
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            //this.dashboardForm1 = new SchoolMangementSystem.DashboardForm();
-            //this.addStudentForm1 = new SchoolMangementSystem.AddStudentForm();
-            //this.addTeachersForm1 = new SchoolMangementSystem.AddTeachersForm();
-            this.dashboardForm1 = new CoachingMangementSystem.DashboardForm();
-
             this.addStudentForm1 = new CoachingMangementSystem.AddStudentForm();
-
-
             this.addTeachersForm1 = new CoachingMangementSystem.AddTeachersForm();
-
+            this.dashboardForm1 = new CoachingMangementSystem.DashboardForm();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,7 +62,7 @@ namespace CoachingMangementSystem
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1467, 30);
             this.panel1.TabIndex = 0;
@@ -110,7 +103,7 @@ namespace CoachingMangementSystem
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 30);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(300, 708);
             this.panel2.TabIndex = 1;
@@ -135,9 +128,8 @@ namespace CoachingMangementSystem
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            //this.button3.Image = global::CocahingMangementSystem.Properties.Resources.icons8_logout_rounded_up_filled_35px;
             this.button3.Location = new System.Drawing.Point(8, 644);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(53, 49);
             this.button3.TabIndex = 5;
@@ -151,10 +143,9 @@ namespace CoachingMangementSystem
             this.AddTeacher_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.AddTeacher_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTeacher_btn.ForeColor = System.Drawing.Color.White;
-            //this.AddTeacher_btn.Image = global::SchoolMangementSystem.Properties.Resources.icons8_training_35px;
             this.AddTeacher_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddTeacher_btn.Location = new System.Drawing.Point(16, 327);
-            this.AddTeacher_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddTeacher_btn.Margin = new System.Windows.Forms.Padding(4);
             this.AddTeacher_btn.Name = "AddTeacher_btn";
             this.AddTeacher_btn.Size = new System.Drawing.Size(267, 49);
             this.AddTeacher_btn.TabIndex = 4;
@@ -169,10 +160,9 @@ namespace CoachingMangementSystem
             this.AddStudent_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.AddStudent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddStudent_btn.ForeColor = System.Drawing.Color.White;
-            //this.AddStudent_btn.Image = global::SchoolMangementSystem.Properties.Resources.icons8_student_35px;
             this.AddStudent_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddStudent_btn.Location = new System.Drawing.Point(16, 271);
-            this.AddStudent_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddStudent_btn.Margin = new System.Windows.Forms.Padding(4);
             this.AddStudent_btn.Name = "AddStudent_btn";
             this.AddStudent_btn.Size = new System.Drawing.Size(267, 49);
             this.AddStudent_btn.TabIndex = 3;
@@ -187,10 +177,9 @@ namespace CoachingMangementSystem
             this.Dashboard_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.Dashboard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Dashboard_btn.ForeColor = System.Drawing.Color.White;
-            //this.Dashboard_btn.Image = global::SchoolMangementSystem.Properties.Resources.icons8_dashboard_35px_1;
             this.Dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Dashboard_btn.Location = new System.Drawing.Point(16, 214);
-            this.Dashboard_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Dashboard_btn.Margin = new System.Windows.Forms.Padding(4);
             this.Dashboard_btn.Name = "Dashboard_btn";
             this.Dashboard_btn.Size = new System.Drawing.Size(267, 49);
             this.Dashboard_btn.TabIndex = 2;
@@ -212,9 +201,8 @@ namespace CoachingMangementSystem
             // 
             // pictureBox1
             // 
-            //this.pictureBox1.Image = global::SchoolMangementSystem.Properties.Resources.icons8_School_80px_1;
             this.pictureBox1.Location = new System.Drawing.Point(97, 36);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(107, 98);
             this.pictureBox1.TabIndex = 0;
@@ -227,26 +215,16 @@ namespace CoachingMangementSystem
             this.panel3.Controls.Add(this.addTeachersForm1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(300, 30);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1167, 708);
             this.panel3.TabIndex = 2;
-            // 
-            // dashboardForm1
-            // 
-            this.dashboardForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboardForm1.Location = new System.Drawing.Point(0, 0);
-            this.dashboardForm1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.dashboardForm1.Name = "dashboardForm1";
-            this.dashboardForm1.Size = new System.Drawing.Size(1167, 708);
-            this.dashboardForm1.TabIndex = 2;
-            this.dashboardForm1.Load += new System.EventHandler(this.dashboardForm1_Load);
             // 
             // addStudentForm1
             // 
             this.addStudentForm1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addStudentForm1.Location = new System.Drawing.Point(0, 0);
-            this.addStudentForm1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.addStudentForm1.Margin = new System.Windows.Forms.Padding(5);
             this.addStudentForm1.Name = "addStudentForm1";
             this.addStudentForm1.Size = new System.Drawing.Size(1167, 708);
             this.addStudentForm1.TabIndex = 1;
@@ -255,10 +233,20 @@ namespace CoachingMangementSystem
             // 
             this.addTeachersForm1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addTeachersForm1.Location = new System.Drawing.Point(0, 0);
-            this.addTeachersForm1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.addTeachersForm1.Margin = new System.Windows.Forms.Padding(5);
             this.addTeachersForm1.Name = "addTeachersForm1";
             this.addTeachersForm1.Size = new System.Drawing.Size(1167, 708);
             this.addTeachersForm1.TabIndex = 0;
+            // 
+            // dashboardForm1
+            // 
+            this.dashboardForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardForm1.Location = new System.Drawing.Point(0, 0);
+            this.dashboardForm1.Margin = new System.Windows.Forms.Padding(5);
+            this.dashboardForm1.Name = "dashboardForm1";
+            this.dashboardForm1.Size = new System.Drawing.Size(1167, 708);
+            this.dashboardForm1.TabIndex = 2;
+            this.dashboardForm1.Load += new System.EventHandler(this.dashboardForm1_Load);
             // 
             // MainForm
             // 
@@ -269,7 +257,7 @@ namespace CoachingMangementSystem
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
