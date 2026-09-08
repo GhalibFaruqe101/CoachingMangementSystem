@@ -13,12 +13,15 @@ namespace CoachingMangementSystem
 {
     public partial class MainForm : Form
     {
-
-        public MainForm()
+        private string adminId;
+        private DB db;
+        public MainForm(string adminId)
 
         {
 
             InitializeComponent();
+            this.db = new DB();
+            this.adminId=adminId;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -28,7 +31,7 @@ namespace CoachingMangementSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dashboardForm1.Visible = false;
+            //dashboardForm1.Visible = false;
             addStudentForm1.Visible = false;
             addTeachersForm1.Visible = true;
             addTeachersForm1.Update();
@@ -59,15 +62,15 @@ namespace CoachingMangementSystem
             dForm.displayTotalTT();
             dForm.displayTotalES();
 
-            dashboardForm1.Visible = true;
-            dashboardForm1.Update();
+            //dashboardForm1.Visible = true;
+            //dashboardForm1.Update();
             addStudentForm1.Visible = false;
             addTeachersForm1.Visible = false;
         }
 
         private void AddStudent_btn_Click(object sender, EventArgs e)
         {
-            dashboardForm1.Visible = false;
+            //dashboardForm1.Visible = false;
             addStudentForm1.Visible = true;
             addStudentForm1.Update();
             addTeachersForm1.Visible = false;
@@ -76,6 +79,30 @@ namespace CoachingMangementSystem
         private void dashboardForm1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            LoginForm lf = new LoginForm();
+            lf.Show();
+            this.Close();
+
+        }
+
+        private void addStudentForm1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void L_ad_Click(object sender, EventArgs e)
+        {
+            
+           
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            this.L_ad.Text = "Welcome " + adminId;
         }
     }
 }

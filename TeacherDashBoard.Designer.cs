@@ -40,7 +40,6 @@
             this.wel_teacher = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dashboardForm1 = new CoachingMangementSystem.DashboardForm();
             this.addStudentForm1 = new CoachingMangementSystem.AddStudentForm();
             this.addTeachersForm1 = new CoachingMangementSystem.AddTeachersForm();
             this.panel1.SuspendLayout();
@@ -78,12 +77,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(453, 3);
+            this.label2.Location = new System.Drawing.Point(618, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(381, 21);
+            this.label2.Size = new System.Drawing.Size(156, 21);
             this.label2.TabIndex = 0;
-            this.label2.Text = "School Management System | Teacher DashBoard";
+            this.label2.Text = "Teacher DashBoard";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Panel
@@ -96,19 +95,21 @@
             this.Panel.Controls.Add(this.Dashboard_btn);
             this.Panel.Controls.Add(this.wel_teacher);
             this.Panel.Controls.Add(this.pictureBox1);
-            this.Panel.Location = new System.Drawing.Point(0, 4);
+            this.Panel.Location = new System.Drawing.Point(4, 29);
             this.Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(1467, 734);
+            this.Panel.Size = new System.Drawing.Size(1350, 741);
             this.Panel.TabIndex = 4;
             this.Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // T_name
             // 
             this.T_name.AutoSize = true;
-            this.T_name.Location = new System.Drawing.Point(561, 195);
+            this.T_name.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.T_name.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.T_name.Location = new System.Drawing.Point(612, 301);
             this.T_name.Name = "T_name";
-            this.T_name.Size = new System.Drawing.Size(44, 16);
+            this.T_name.Size = new System.Drawing.Size(96, 38);
             this.T_name.TabIndex = 7;
             this.T_name.Text = "label4";
             this.T_name.Click += new System.EventHandler(this.T_name_Click);
@@ -117,7 +118,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(555, 174);
+            this.label1.Location = new System.Drawing.Point(643, 302);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 27);
             this.label1.TabIndex = 6;
@@ -131,10 +132,10 @@
             this.logout_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logout_btn.ForeColor = System.Drawing.Color.Black;
-            this.logout_btn.Location = new System.Drawing.Point(482, 364);
+            this.logout_btn.Location = new System.Drawing.Point(570, 494);
             this.logout_btn.Margin = new System.Windows.Forms.Padding(4);
             this.logout_btn.Name = "logout_btn";
-            this.logout_btn.Size = new System.Drawing.Size(223, 49);
+            this.logout_btn.Size = new System.Drawing.Size(223, 52);
             this.logout_btn.TabIndex = 5;
             this.logout_btn.Text = "Logout";
             this.logout_btn.UseVisualStyleBackColor = false;
@@ -148,10 +149,10 @@
             this.AddStudent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddStudent_btn.ForeColor = System.Drawing.Color.White;
             this.AddStudent_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddStudent_btn.Location = new System.Drawing.Point(458, 283);
+            this.AddStudent_btn.Location = new System.Drawing.Point(546, 417);
             this.AddStudent_btn.Margin = new System.Windows.Forms.Padding(4);
             this.AddStudent_btn.Name = "AddStudent_btn";
-            this.AddStudent_btn.Size = new System.Drawing.Size(267, 49);
+            this.AddStudent_btn.Size = new System.Drawing.Size(267, 52);
             this.AddStudent_btn.TabIndex = 3;
             this.AddStudent_btn.Text = "Profile";
             this.AddStudent_btn.UseVisualStyleBackColor = true;
@@ -165,10 +166,10 @@
             this.Dashboard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Dashboard_btn.ForeColor = System.Drawing.Color.White;
             this.Dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Dashboard_btn.Location = new System.Drawing.Point(458, 226);
+            this.Dashboard_btn.Location = new System.Drawing.Point(546, 351);
             this.Dashboard_btn.Margin = new System.Windows.Forms.Padding(4);
             this.Dashboard_btn.Name = "Dashboard_btn";
-            this.Dashboard_btn.Size = new System.Drawing.Size(267, 49);
+            this.Dashboard_btn.Size = new System.Drawing.Size(267, 52);
             this.Dashboard_btn.TabIndex = 2;
             this.Dashboard_btn.Text = "Student Information";
             this.Dashboard_btn.UseVisualStyleBackColor = true;
@@ -179,7 +180,7 @@
             this.wel_teacher.AutoSize = true;
             this.wel_teacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wel_teacher.ForeColor = System.Drawing.Color.White;
-            this.wel_teacher.Location = new System.Drawing.Point(509, 150);
+            this.wel_teacher.Location = new System.Drawing.Point(597, 278);
             this.wel_teacher.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.wel_teacher.Name = "wel_teacher";
             this.wel_teacher.Size = new System.Drawing.Size(0, 25);
@@ -187,16 +188,16 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(539, 48);
+            this.pictureBox1.Location = new System.Drawing.Point(627, 175);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(107, 103);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dashboardForm1);
+            this.panel3.Controls.Add(this.Panel);
             this.panel3.Controls.Add(this.addStudentForm1);
             this.panel3.Controls.Add(this.addTeachersForm1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,16 +206,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1354, 774);
             this.panel3.TabIndex = 5;
-            // 
-            // dashboardForm1
-            // 
-            this.dashboardForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboardForm1.Location = new System.Drawing.Point(0, 0);
-            this.dashboardForm1.Margin = new System.Windows.Forms.Padding(5);
-            this.dashboardForm1.Name = "dashboardForm1";
-            this.dashboardForm1.Size = new System.Drawing.Size(1354, 774);
-            this.dashboardForm1.TabIndex = 2;
-            this.dashboardForm1.Load += new System.EventHandler(this.dashboardForm1_Load_1);
             // 
             // addStudentForm1
             // 
@@ -240,7 +231,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 774);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.Panel);
             this.Controls.Add(this.panel3);
             this.Name = "TeacherDashBoard";
             this.Text = "TeacherDashBoard";
@@ -255,8 +245,6 @@
         }
 
         #endregion
-
-        private CoachingMangementSystem.DashboardForm dashboardForm1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

@@ -29,8 +29,10 @@ namespace CoachingMangementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.searchbtn = new System.Windows.Forms.Button();
+            this.searchtxt = new System.Windows.Forms.TextBox();
             this.student_status = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.student_deleteBtn = new System.Windows.Forms.Button();
@@ -42,7 +44,6 @@ namespace CoachingMangementSystem
             this.student_image = new System.Windows.Forms.PictureBox();
             this.student_section = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.student_grade = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.student_address = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,10 +54,9 @@ namespace CoachingMangementSystem
             this.student_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.return_btn = new System.Windows.Forms.Button();
             this.student_studentData = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.searchtxt = new System.Windows.Forms.TextBox();
-            this.searchbtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.student_image)).BeginInit();
@@ -66,7 +66,7 @@ namespace CoachingMangementSystem
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.Firebrick;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.searchbtn);
             this.panel2.Controls.Add(this.searchtxt);
@@ -80,7 +80,6 @@ namespace CoachingMangementSystem
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.student_section);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.student_grade);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.student_address);
             this.panel2.Controls.Add(this.label5);
@@ -97,6 +96,34 @@ namespace CoachingMangementSystem
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // searchbtn
+            // 
+            this.searchbtn.BackColor = System.Drawing.Color.Maroon;
+            this.searchbtn.FlatAppearance.BorderSize = 0;
+            this.searchbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.searchbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbtn.ForeColor = System.Drawing.Color.White;
+            this.searchbtn.Location = new System.Drawing.Point(756, 220);
+            this.searchbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.searchbtn.Name = "searchbtn";
+            this.searchbtn.Size = new System.Drawing.Size(87, 31);
+            this.searchbtn.TabIndex = 21;
+            this.searchbtn.Text = "Search";
+            this.searchbtn.UseVisualStyleBackColor = false;
+            this.searchbtn.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // searchtxt
+            // 
+            this.searchtxt.Location = new System.Drawing.Point(851, 221);
+            this.searchtxt.Margin = new System.Windows.Forms.Padding(4);
+            this.searchtxt.Multiline = true;
+            this.searchtxt.Name = "searchtxt";
+            this.searchtxt.Size = new System.Drawing.Size(191, 30);
+            this.searchtxt.TabIndex = 20;
+            this.searchtxt.TextChanged += new System.EventHandler(this.searchtxt_TextChanged);
+            // 
             // student_status
             // 
             this.student_status.FormattingEnabled = true;
@@ -104,7 +131,7 @@ namespace CoachingMangementSystem
             "Enrolled",
             "Pending",
             "Graduated"});
-            this.student_status.Location = new System.Drawing.Point(705, 74);
+            this.student_status.Location = new System.Drawing.Point(713, 74);
             this.student_status.Margin = new System.Windows.Forms.Padding(4);
             this.student_status.Name = "student_status";
             this.student_status.Size = new System.Drawing.Size(191, 24);
@@ -114,17 +141,19 @@ namespace CoachingMangementSystem
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(644, 78);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 16);
+            this.label8.Size = new System.Drawing.Size(54, 16);
             this.label8.TabIndex = 18;
             this.label8.Text = "Status:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // student_deleteBtn
             // 
-            this.student_deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_deleteBtn.BackColor = System.Drawing.Color.Maroon;
             this.student_deleteBtn.FlatAppearance.BorderSize = 0;
             this.student_deleteBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_deleteBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -142,7 +171,7 @@ namespace CoachingMangementSystem
             // 
             // student_clearBtn
             // 
-            this.student_clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_clearBtn.BackColor = System.Drawing.Color.Maroon;
             this.student_clearBtn.FlatAppearance.BorderSize = 0;
             this.student_clearBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_clearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -160,7 +189,7 @@ namespace CoachingMangementSystem
             // 
             // student_updateBtn
             // 
-            this.student_updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_updateBtn.BackColor = System.Drawing.Color.Maroon;
             this.student_updateBtn.FlatAppearance.BorderSize = 0;
             this.student_updateBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_updateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -178,7 +207,7 @@ namespace CoachingMangementSystem
             // 
             // student_addBtn
             // 
-            this.student_addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_addBtn.BackColor = System.Drawing.Color.Maroon;
             this.student_addBtn.FlatAppearance.BorderSize = 0;
             this.student_addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -196,7 +225,7 @@ namespace CoachingMangementSystem
             // 
             // student_importBtn
             // 
-            this.student_importBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_importBtn.BackColor = System.Drawing.Color.Maroon;
             this.student_importBtn.FlatAppearance.BorderSize = 0;
             this.student_importBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_importBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -243,7 +272,7 @@ namespace CoachingMangementSystem
             "C",
             "D",
             "E"});
-            this.student_section.Location = new System.Drawing.Point(705, 26);
+            this.student_section.Location = new System.Drawing.Point(713, 26);
             this.student_section.Margin = new System.Windows.Forms.Padding(4);
             this.student_section.Name = "student_section";
             this.student_section.Size = new System.Drawing.Size(191, 24);
@@ -253,34 +282,20 @@ namespace CoachingMangementSystem
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(636, 30);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 16);
+            this.label7.Size = new System.Drawing.Size(63, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "Section:";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // student_grade
-            // 
-            this.student_grade.FormattingEnabled = true;
-            this.student_grade.Items.AddRange(new object[] {
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Grade 6"});
-            this.student_grade.Location = new System.Drawing.Point(416, 122);
-            this.student_grade.Margin = new System.Windows.Forms.Padding(4);
-            this.student_grade.Name = "student_grade";
-            this.student_grade.Size = new System.Drawing.Size(191, 24);
-            this.student_grade.TabIndex = 9;
-            this.student_grade.SelectedIndexChanged += new System.EventHandler(this.student_grade_SelectedIndexChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Firebrick;
             this.label6.Location = new System.Drawing.Point(356, 126);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -291,7 +306,7 @@ namespace CoachingMangementSystem
             // 
             // student_address
             // 
-            this.student_address.Location = new System.Drawing.Point(416, 26);
+            this.student_address.Location = new System.Drawing.Point(422, 26);
             this.student_address.Margin = new System.Windows.Forms.Padding(4);
             this.student_address.Multiline = true;
             this.student_address.Name = "student_address";
@@ -302,10 +317,12 @@ namespace CoachingMangementSystem
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(344, 33);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 16);
+            this.label5.Size = new System.Drawing.Size(69, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Address:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -317,7 +334,7 @@ namespace CoachingMangementSystem
             "Male",
             "Female",
             "Others"});
-            this.student_gender.Location = new System.Drawing.Point(108, 128);
+            this.student_gender.Location = new System.Drawing.Point(124, 128);
             this.student_gender.Margin = new System.Windows.Forms.Padding(4);
             this.student_gender.Name = "student_gender";
             this.student_gender.Size = new System.Drawing.Size(191, 24);
@@ -327,17 +344,19 @@ namespace CoachingMangementSystem
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(40, 132);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 16);
+            this.label4.Size = new System.Drawing.Size(62, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Gender:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // student_name
             // 
-            this.student_name.Location = new System.Drawing.Point(107, 76);
+            this.student_name.Location = new System.Drawing.Point(123, 76);
             this.student_name.Margin = new System.Windows.Forms.Padding(4);
             this.student_name.Multiline = true;
             this.student_name.Name = "student_name";
@@ -348,17 +367,19 @@ namespace CoachingMangementSystem
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(27, 84);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.Size = new System.Drawing.Size(81, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Full Name:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // student_id
             // 
-            this.student_id.Location = new System.Drawing.Point(107, 26);
+            this.student_id.Location = new System.Drawing.Point(123, 26);
             this.student_id.Margin = new System.Windows.Forms.Padding(4);
             this.student_id.Multiline = true;
             this.student_id.Name = "student_id";
@@ -369,18 +390,21 @@ namespace CoachingMangementSystem
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(27, 33);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.Size = new System.Drawing.Size(82, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Student ID:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.return_btn);
             this.panel1.Controls.Add(this.student_studentData);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 16);
@@ -390,19 +414,37 @@ namespace CoachingMangementSystem
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // return_btn
+            // 
+            this.return_btn.BackColor = System.Drawing.Color.Maroon;
+            this.return_btn.FlatAppearance.BorderSize = 0;
+            this.return_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.return_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.return_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.return_btn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return_btn.ForeColor = System.Drawing.Color.Maroon;
+            this.return_btn.Location = new System.Drawing.Point(1003, 8);
+            this.return_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.return_btn.Name = "return_btn";
+            this.return_btn.Size = new System.Drawing.Size(104, 36);
+            this.return_btn.TabIndex = 26;
+            this.return_btn.Text = "Return";
+            this.return_btn.UseVisualStyleBackColor = false;
+            this.return_btn.Click += new System.EventHandler(this.return_btn_Click);
+            // 
             // student_studentData
             // 
             this.student_studentData.AllowUserToAddRows = false;
             this.student_studentData.AllowUserToDeleteRows = false;
             this.student_studentData.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.student_studentData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.student_studentData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.student_studentData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.student_studentData.EnableHeadersVisualStyles = false;
             this.student_studentData.Location = new System.Drawing.Point(27, 58);
@@ -419,42 +461,15 @@ namespace CoachingMangementSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(21, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 24);
+            this.label1.Size = new System.Drawing.Size(143, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Student Data";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // searchtxt
-            // 
-            this.searchtxt.Location = new System.Drawing.Point(851, 221);
-            this.searchtxt.Margin = new System.Windows.Forms.Padding(4);
-            this.searchtxt.Multiline = true;
-            this.searchtxt.Name = "searchtxt";
-            this.searchtxt.Size = new System.Drawing.Size(191, 30);
-            this.searchtxt.TabIndex = 20;
-            this.searchtxt.TextChanged += new System.EventHandler(this.searchtxt_TextChanged);
-            // 
-            // searchbtn
-            // 
-            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            this.searchbtn.FlatAppearance.BorderSize = 0;
-            this.searchbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.searchbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.searchbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchbtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchbtn.ForeColor = System.Drawing.Color.White;
-            this.searchbtn.Location = new System.Drawing.Point(756, 220);
-            this.searchbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.searchbtn.Name = "searchbtn";
-            this.searchbtn.Size = new System.Drawing.Size(87, 31);
-            this.searchbtn.TabIndex = 21;
-            this.searchbtn.Text = "Search";
-            this.searchbtn.UseVisualStyleBackColor = false;
-            this.searchbtn.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // AddStudentForm
             // 
@@ -487,7 +502,7 @@ namespace CoachingMangementSystem
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox student_section;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox student_grade;
+        //private System.Windows.Forms.ComboBox student_grade;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox student_address;
         private System.Windows.Forms.Label label5;
@@ -505,5 +520,6 @@ namespace CoachingMangementSystem
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button searchbtn;
         private System.Windows.Forms.TextBox searchtxt;
+        private System.Windows.Forms.Button return_btn;
     }
 }

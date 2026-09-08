@@ -158,7 +158,7 @@ namespace CoachingMangementSystem
                     // Admin
                     if (role == "Admin")
                     {
-                        MainForm mform = new MainForm();
+                        MainForm mform = new MainForm(username.Text);
 
                         mform.Show();
                         this.Hide();

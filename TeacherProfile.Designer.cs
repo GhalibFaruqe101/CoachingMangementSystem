@@ -46,7 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.courses = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -79,10 +79,11 @@
             this.student_studentData.RowHeadersWidth = 51;
             this.student_studentData.Size = new System.Drawing.Size(1080, 276);
             this.student_studentData.TabIndex = 1;
+            this.student_studentData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.student_studentData_CellContentClick);
             // 
             // searchbtn
             // 
-            this.searchbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.searchbtn.BackColor = System.Drawing.Color.Teal;
             this.searchbtn.FlatAppearance.BorderSize = 0;
             this.searchbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.searchbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -108,7 +109,7 @@
             // 
             // student_deleteBtn
             // 
-            this.student_deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_deleteBtn.BackColor = System.Drawing.Color.Teal;
             this.student_deleteBtn.FlatAppearance.BorderSize = 0;
             this.student_deleteBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_deleteBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -125,7 +126,7 @@
             // 
             // student_clearBtn
             // 
-            this.student_clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_clearBtn.BackColor = System.Drawing.Color.Teal;
             this.student_clearBtn.FlatAppearance.BorderSize = 0;
             this.student_clearBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_clearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -142,7 +143,7 @@
             // 
             // student_updateBtn
             // 
-            this.student_updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_updateBtn.BackColor = System.Drawing.Color.Teal;
             this.student_updateBtn.FlatAppearance.BorderSize = 0;
             this.student_updateBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_updateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -154,12 +155,12 @@
             this.student_updateBtn.Name = "student_updateBtn";
             this.student_updateBtn.Size = new System.Drawing.Size(136, 43);
             this.student_updateBtn.TabIndex = 15;
-            this.student_updateBtn.Text = "Update";
+            this.student_updateBtn.Text = "Edit Grade";
             this.student_updateBtn.UseVisualStyleBackColor = false;
             // 
             // student_addBtn
             // 
-            this.student_addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.student_addBtn.BackColor = System.Drawing.Color.Teal;
             this.student_addBtn.FlatAppearance.BorderSize = 0;
             this.student_addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.student_addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -171,8 +172,9 @@
             this.student_addBtn.Name = "student_addBtn";
             this.student_addBtn.Size = new System.Drawing.Size(136, 43);
             this.student_addBtn.TabIndex = 14;
-            this.student_addBtn.Text = "Add";
+            this.student_addBtn.Text = "Grade";
             this.student_addBtn.UseVisualStyleBackColor = false;
+            this.student_addBtn.Click += new System.EventHandler(this.student_addBtn_Click);
             // 
             // student_section
             // 
@@ -203,12 +205,15 @@
             // 
             this.student_grade.FormattingEnabled = true;
             this.student_grade.Items.AddRange(new object[] {
-            "Grade 1",
-            "Grade 2",
-            "Grade 3",
-            "Grade 4",
-            "Grade 5",
-            "Grade 6"});
+            "A+",
+            "A",
+            "B+",
+            "B",
+            "C+",
+            "C",
+            "D+",
+            "D",
+            "F"});
             this.student_grade.Location = new System.Drawing.Point(107, 125);
             this.student_grade.Margin = new System.Windows.Forms.Padding(4);
             this.student_grade.Name = "student_grade";
@@ -268,7 +273,7 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.courses);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.searchbtn);
             this.panel2.Controls.Add(this.searchtxt);
@@ -293,7 +298,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -309,20 +314,20 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox1
+            // courses
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.courses.FormattingEnabled = true;
+            this.courses.Items.AddRange(new object[] {
             "A",
             "B",
             "C",
             "D",
             "E"});
-            this.comboBox1.Location = new System.Drawing.Point(436, 83);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(191, 24);
-            this.comboBox1.TabIndex = 23;
+            this.courses.Location = new System.Drawing.Point(436, 83);
+            this.courses.Margin = new System.Windows.Forms.Padding(4);
+            this.courses.Name = "courses";
+            this.courses.Size = new System.Drawing.Size(191, 24);
+            this.courses.TabIndex = 23;
             // 
             // label4
             // 
@@ -361,7 +366,7 @@
             // 
             // return_btn
             // 
-            this.return_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.return_btn.BackColor = System.Drawing.Color.Teal;
             this.return_btn.FlatAppearance.BorderSize = 0;
             this.return_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.return_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -416,7 +421,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox courses;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button return_btn;
     }

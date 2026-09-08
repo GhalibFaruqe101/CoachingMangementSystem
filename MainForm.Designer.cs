@@ -37,20 +37,15 @@ namespace CoachingMangementSystem
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.logout_btn = new System.Windows.Forms.Button();
             this.AddTeacher_btn = new System.Windows.Forms.Button();
             this.AddStudent_btn = new System.Windows.Forms.Button();
-            this.Dashboard_btn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.L_ad = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.addStudentForm1 = new CoachingMangementSystem.AddStudentForm();
             this.addTeachersForm1 = new CoachingMangementSystem.AddTeachersForm();
-            this.dashboardForm1 = new CoachingMangementSystem.DashboardForm();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,48 +88,36 @@ namespace CoachingMangementSystem
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.BackColor = System.Drawing.Color.Firebrick;
+            this.panel2.Controls.Add(this.logout_btn);
             this.panel2.Controls.Add(this.AddTeacher_btn);
             this.panel2.Controls.Add(this.AddStudent_btn);
-            this.panel2.Controls.Add(this.Dashboard_btn);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.L_ad);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(300, 708);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // label4
+            // logout_btn
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(72, 663);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 21);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Logout";
-            // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(8, 644);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 49);
-            this.button3.TabIndex = 5;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.logout_btn.BackColor = System.Drawing.Color.White;
+            this.logout_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logout_btn.FlatAppearance.BorderSize = 0;
+            this.logout_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.logout_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logout_btn.ForeColor = System.Drawing.Color.Black;
+            this.logout_btn.Location = new System.Drawing.Point(28, 646);
+            this.logout_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(223, 49);
+            this.logout_btn.TabIndex = 6;
+            this.logout_btn.Text = "Logout";
+            this.logout_btn.UseVisualStyleBackColor = false;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
             // AddTeacher_btn
             // 
@@ -149,7 +132,7 @@ namespace CoachingMangementSystem
             this.AddTeacher_btn.Name = "AddTeacher_btn";
             this.AddTeacher_btn.Size = new System.Drawing.Size(267, 49);
             this.AddTeacher_btn.TabIndex = 4;
-            this.AddTeacher_btn.Text = "Add Teachers";
+            this.AddTeacher_btn.Text = "Teachers";
             this.AddTeacher_btn.UseVisualStyleBackColor = true;
             this.AddTeacher_btn.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -166,51 +149,25 @@ namespace CoachingMangementSystem
             this.AddStudent_btn.Name = "AddStudent_btn";
             this.AddStudent_btn.Size = new System.Drawing.Size(267, 49);
             this.AddStudent_btn.TabIndex = 3;
-            this.AddStudent_btn.Text = "Add Students";
+            this.AddStudent_btn.Text = "Students";
             this.AddStudent_btn.UseVisualStyleBackColor = true;
             this.AddStudent_btn.Click += new System.EventHandler(this.AddStudent_btn_Click);
             // 
-            // Dashboard_btn
+            // L_ad
             // 
-            this.Dashboard_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Dashboard_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Dashboard_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.Dashboard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Dashboard_btn.ForeColor = System.Drawing.Color.White;
-            this.Dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Dashboard_btn.Location = new System.Drawing.Point(16, 214);
-            this.Dashboard_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.Dashboard_btn.Name = "Dashboard_btn";
-            this.Dashboard_btn.Size = new System.Drawing.Size(267, 49);
-            this.Dashboard_btn.TabIndex = 2;
-            this.Dashboard_btn.Text = "Dashboard";
-            this.Dashboard_btn.UseVisualStyleBackColor = true;
-            this.Dashboard_btn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 138);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Welcome, Admin";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(97, 36);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 98);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.L_ad.AutoSize = true;
+            this.L_ad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ad.ForeColor = System.Drawing.Color.White;
+            this.L_ad.Location = new System.Drawing.Point(63, 175);
+            this.L_ad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.L_ad.Name = "L_ad";
+            this.L_ad.Size = new System.Drawing.Size(161, 25);
+            this.L_ad.TabIndex = 1;
+            this.L_ad.Text = "Welcome, Admin";
+            this.L_ad.Click += new System.EventHandler(this.L_ad_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dashboardForm1);
             this.panel3.Controls.Add(this.addStudentForm1);
             this.panel3.Controls.Add(this.addTeachersForm1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -222,12 +179,14 @@ namespace CoachingMangementSystem
             // 
             // addStudentForm1
             // 
+            this.addStudentForm1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.addStudentForm1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addStudentForm1.Location = new System.Drawing.Point(0, 0);
             this.addStudentForm1.Margin = new System.Windows.Forms.Padding(5);
             this.addStudentForm1.Name = "addStudentForm1";
             this.addStudentForm1.Size = new System.Drawing.Size(1167, 708);
             this.addStudentForm1.TabIndex = 1;
+            this.addStudentForm1.Load += new System.EventHandler(this.addStudentForm1_Load);
             // 
             // addTeachersForm1
             // 
@@ -237,16 +196,6 @@ namespace CoachingMangementSystem
             this.addTeachersForm1.Name = "addTeachersForm1";
             this.addTeachersForm1.Size = new System.Drawing.Size(1167, 708);
             this.addTeachersForm1.TabIndex = 0;
-            // 
-            // dashboardForm1
-            // 
-            this.dashboardForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashboardForm1.Location = new System.Drawing.Point(0, 0);
-            this.dashboardForm1.Margin = new System.Windows.Forms.Padding(5);
-            this.dashboardForm1.Name = "dashboardForm1";
-            this.dashboardForm1.Size = new System.Drawing.Size(1167, 708);
-            this.dashboardForm1.TabIndex = 2;
-            this.dashboardForm1.Load += new System.EventHandler(this.dashboardForm1_Load);
             // 
             // MainForm
             // 
@@ -265,7 +214,6 @@ namespace CoachingMangementSystem
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -277,16 +225,12 @@ namespace CoachingMangementSystem
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button AddTeacher_btn;
         private System.Windows.Forms.Button AddStudent_btn;
-        private System.Windows.Forms.Button Dashboard_btn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label L_ad;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private AddTeachersForm addTeachersForm1;
         private AddStudentForm addStudentForm1;
-        private DashboardForm dashboardForm1;
+        private Button logout_btn;
     }
 }

@@ -8,10 +8,14 @@ using System.Data.SqlClient;
 
 namespace CoachingMangementSystem
 {
+    
     class AddStudentData
+
+
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\WINDOWS 10\Documents\school.mdf;Integrated Security=True;Connect Timeout=30");
-        public int ID { set; get; }
+
+        SqlConnection connect = new SqlConnection(@"Data Source=DESKTOP-FIDVE11\SQLEXPRESS;Initial Catalog=CoachingManagementDB;Integrated Security=True");
+            
         public string StudentID { set; get; }
         public string StudentName { set; get; }
         public string StudentGender { set; get; }
@@ -40,12 +44,12 @@ namespace CoachingMangementSystem
                         while (reader.Read())
                         {
                             AddStudentData addSD = new AddStudentData();
-                            addSD.ID = (int)reader["id"];
+                            //addSD.ID = (int)reader["id"];
                             addSD.StudentID = reader["student_id"].ToString();
                             addSD.StudentName = reader["student_name"].ToString();
                             addSD.StudentGender = reader["student_gender"].ToString();
                             addSD.StudentAddress = reader["student_address"].ToString();
-                            addSD.StudentGrade = reader["student_grade"].ToString();
+                            //addSD.StudentGrade = reader["student_grade"].ToString();
                             addSD.StudentSection = reader["student_section"].ToString();
                             addSD.StudentImage = reader["student_image"].ToString();
                             addSD.Status = reader["student_status"].ToString();
@@ -90,12 +94,12 @@ namespace CoachingMangementSystem
                         while (reader.Read())
                         {
                             AddStudentData addSD = new AddStudentData();
-                            addSD.ID = (int)reader["id"];
+                            //addSD.ID = (int)reader["id"];
                             addSD.StudentID = reader["student_id"].ToString();
                             addSD.StudentName = reader["student_name"].ToString();
                             addSD.StudentGender = reader["student_gender"].ToString();
                             addSD.StudentAddress = reader["student_address"].ToString();
-                            addSD.StudentGrade = reader["student_grade"].ToString();
+                            //addSD.StudentGrade = reader["student_grade"].ToString();
                             addSD.StudentSection = reader["student_section"].ToString();
                             addSD.StudentImage = reader["student_image"].ToString();
                             addSD.Status = reader["student_status"].ToString();

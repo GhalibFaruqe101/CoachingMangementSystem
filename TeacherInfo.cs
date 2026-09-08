@@ -129,5 +129,9 @@ using System.Xml.Linq;
             t_data.DataSource = dt;
         }
 
+        private void t_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

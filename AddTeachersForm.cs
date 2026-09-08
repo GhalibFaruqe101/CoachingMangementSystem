@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+
 //using CoachingMangementSystem.CoachingMangementSystem;
 
 namespace CoachingMangementSystem
@@ -140,52 +141,72 @@ namespace CoachingMangementSystem
 
         private void teacher_updateBtn_Click(object sender, EventArgs e)
         {
-            if (teacher_id.Text == ""
-                || teacher_name.Text == ""
-                || teacher_gender.Text == ""
-                || teacher_address.Text == ""
-                || teacher_status.Text == ""
-                || teacher_image.Image == null
-                || imagePath == null)
-            {
-                MessageBox.Show("Please select item first", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Updated");
+            string up_q = @"UPDATE Teachers SET " +
+                         "teacher_name='" + teacher_name.Text +
+                         "', teacher_gender='" + teacher_gender.Text +
+                         "', teacher_address='" + teacher_address.Text +
+                         "', teacher_status='" + teacher_status.Text +
+                         "' WHERE teacher_id='" + teacher_id.Text + "'";
+            int count = this.db.ExecuteDMLQuery(up_q);
+            try { 
+            
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Teacher information updated successfully.");
+
+                    // Reload the grid
+                    loadData();
+                }
+
+
+            } catch {
+                MessageBox.Show("Error has occured");
+                    }
+            
+            //if (teacher_id.Text == ""
+            //    || teacher_name.Text == ""
+            //    || teacher_gender.Text == ""
+            //    || teacher_address.Text == ""
+            //    || teacher_status.Text == ""
+            //    || teacher_image.Image == null
+            //    || imagePath == null)
+            //{
+            //    MessageBox.Show("Please select item first", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Updated");
                     
                 
-            }
+            //}
         }
 
         private void teacher_gridData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if(e.RowIndex != -1)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = teacher_gridData.Rows[e.RowIndex];
-                teacher_id.Text = row.Cells[1].Value.ToString();
-                teacher_name.Text = row.Cells[2].Value.ToString();
-                teacher_gender.Text = row.Cells[3].Value.ToString();
-                teacher_address.Text = row.Cells[4].Value.ToString();
 
-                imagePath = row.Cells[5].Value.ToString();
+                teacher_id.Text = row.Cells[1].Value?.ToString();
+                teacher_name.Text = row.Cells[2].Value?.ToString();
+                teacher_gender.Text = row.Cells[3].Value?.ToString();
+                teacher_address.Text = row.Cells[4].Value?.ToString();
 
-                string imageData = row.Cells[5].Value.ToString();
+                imagePath = row.Cells[5].Value?.ToString();
 
-                if(imageData != null && imageData.Length > 0)
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
                 {
-                    teacher_image.Image = Image.FromFile(imageData);
+                    teacher_image.Image = Image.FromFile(imagePath);
                 }
                 else
                 {
                     teacher_image.Image = null;
                 }
 
-                teacher_status.Text = row.Cells[6].Value.ToString();
-                
+                teacher_status.Text = row.Cells[6].Value?.ToString();
             }
-
         }
 
         private void teacher_deleteBtn_Click(object sender, EventArgs e)
@@ -197,8 +218,7 @@ namespace CoachingMangementSystem
             }
             else
             {
-                if(true) // connect.State != ConnectionState.Open
-                {
+                
                     DialogResult check = MessageBox.Show("Are you sure you want to Delete Teacher ID: " 
                         + teacher_id.Text + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     
@@ -208,10 +228,10 @@ namespace CoachingMangementSystem
                         {
                             DateTime today = DateTime.Today;
 
-                            string deleteData = "UPDATE teachers SET date_delete = @dateDelete " +
-                                "WHERE teacher_id = @teacherID";
+                        string deleteData = "DELETE FROM teachers WHERE teacher_id='" + teacher_id.Text + "'";
+                        DataTable dt = this.db.ExecuteQuery(deleteData);
 
-                            teacherDisplayData();
+                            loadData();
 
                             MessageBox.Show("Deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -233,7 +253,7 @@ namespace CoachingMangementSystem
                     }
                 }
             }
-        }
+        
 
         private void displayTeacherData() { }
 

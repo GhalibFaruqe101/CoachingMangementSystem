@@ -72,7 +72,7 @@
             // 
             // return_btn
             // 
-            this.return_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.return_btn.BackColor = System.Drawing.Color.Teal;
             this.return_btn.FlatAppearance.BorderSize = 0;
             this.return_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.return_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -111,6 +111,7 @@
             this.t_data.RowHeadersWidth = 51;
             this.t_data.Size = new System.Drawing.Size(1080, 276);
             this.t_data.TabIndex = 1;
+            this.t_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.t_data_CellContentClick);
             // 
             // label1
             // 
@@ -125,7 +126,7 @@
             // 
             // schedule_btn
             // 
-            this.schedule_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.schedule_btn.BackColor = System.Drawing.Color.Teal;
             this.schedule_btn.FlatAppearance.BorderSize = 0;
             this.schedule_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.schedule_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -143,7 +144,7 @@
             // 
             // edt_btn
             // 
-            this.edt_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.edt_btn.BackColor = System.Drawing.Color.Teal;
             this.edt_btn.FlatAppearance.BorderSize = 0;
             this.edt_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.edt_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -328,7 +329,7 @@
             // 
             // search_btn
             // 
-            this.search_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.search_btn.BackColor = System.Drawing.Color.Teal;
             this.search_btn.FlatAppearance.BorderSize = 0;
             this.search_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.search_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
